@@ -406,8 +406,8 @@ widgets:
   memory:
     type: "yasb.memory.MemoryWidget"
     options:
-        label: "\uf538 {virtual_mem_free}"
-        label_alt: "\uf538 {virtual_mem_percent}%"
+        label: "\uf538 {virtual_mem_percent}%"
+        label_alt: "\uf538 {virtual_mem_free}"
         update_interval: 5000
         callbacks:
           on_right: "exec cmd /c Taskmgr"
@@ -459,8 +459,8 @@ widgets:
   ip_info:
     type: "yasb.custom.CustomWidget"
     options:
-      label: "\uf3c5 {data[city]}, {data[region]}"
-      label_alt: "\uf3c5 {data[ip]} [{data[country]}]"
+      label: "\uf3c5 {data[ip]} [{data[country]}]"
+      label_alt: "\uf3c5 {data[city]}, {data[region]}"
       class_name: "ip-info-widget"
       exec_options:
         run_cmd: "curl.exe https://ipinfo.io"
@@ -470,15 +470,15 @@ widgets:
         on_left: "toggle_label"
         on_middle: "exec cmd /c ncpa.cpl"                           # open network settings
         on_right: "exec cmd /c start https://ipinfo.io/{data[ip]} " # open ipinfo in browser
-
-  weather:
-    type: "yasb.custom.CustomWidget"
-    options:
-      label: "\uf0c2 {data[main][temp]}\u00b0c"
-      label_alt: "\uf0c2 {data[weather][0][description]}"
-      class_name: "weather-widget"
-      exec_options:
-        run_cmd: "curl.exe api.openweathermap.org/data/2.5/weather?q=Glasgow&units=metric&appid={YOUR_API_KEY_HERE}"
-        # run every hour
-        run_interval: 3600000
-        return_format: "json"
+  #
+  # weather:
+  #   type: "yasb.custom.CustomWidget"
+  #   options:
+  #     label: "\uf0c2 {data[main][temp]}\u00b0c"
+  #     label_alt: "\uf0c2 {data[weather][0][description]}"
+  #     class_name: "weather-widget"
+  #     exec_options:
+  #       run_cmd: "curl.exe api.openweathermap.org/data/2.5/weather?q=Glasgow&units=metric&appid={YOUR_API_KEY_HERE}"
+  #       # run every hour
+  #       run_interval: 3600000
+  #       return_format: "json"

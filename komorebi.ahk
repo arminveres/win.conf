@@ -23,22 +23,17 @@ Run, komorebic.exe focus-follows-mouse disable, , Hide
 Run, komorebic.exe mouse-follows-focus enable, , Hide
 
 ; Ensure there are 3 workspaces created on monitor 0
-Run, komorebic.exe ensure-workspaces 0 3, , Hide
-Run, komorebic.exe ensure-workspaces 1 3, , Hide
+Run, komorebic.exe ensure-workspaces 0 9, , Hide
+Run, komorebic.exe ensure-workspaces 1 9, , Hide
 
 ; Give the workspaces some optional names
-; Run, komorebic.exe workspace-name 0 0 bsp, , Hide
-; Run, komorebic.exe workspace-name 0 1 columns, , Hide
-; Run, komorebic.exe workspace-name 0 2 thicc, , Hide
-; Run, komorebic.exe workspace-name 0 3 matrix, , Hide
-; Run, komorebic.exe workspace-name 0 4 floaty, , Hide
+Run, komorebic.exe workspace-name 0 0 code, , Hide
+Run, komorebic.exe workspace-name 0 1 www, , Hide
+Run, komorebic.exe workspace-name 0 2 res, , Hide
+Run, komorebic.exe workspace-name 0 3 mus, , Hide
+Run, komorebic.exe workspace-name 0 4 mail, , Hide
 
 ; Set the padding of the different workspaces
-; Run, komorebic.exe workspace-padding 0 1 30, , Hide
-; Run, komorebic.exe container-padding 0 1 30, , Hide
-; Run, komorebic.exe workspace-padding 0 2 30, , Hide
-; Run, komorebic.exe container-padding 0 2 30, , Hide
-; Run, komorebic.exe workspace-padding 0 3 30, , Hide
 ; Run, komorebic.exe container-padding 0 3 30, , Hide
 
 ; Set the layouts of different workspaces
@@ -48,16 +43,14 @@ Run, komorebic.exe ensure-workspaces 1 3, , Hide
 ; Run, komorebic.exe workspace-tiling 0 4 disable, , Hide
 
 ; Always show chat apps on the second workspace
-Run, komorebic.exe workspace-rule exe Obsidian.exe 0 1, , Hide
-Run, komorebic.exe workspace-rule exe Discord.exe 0 2, , Hide
-Run, komorebic.exe workspace-rule exe Spotify.exe 0 2, , Hide
+; Run, komorebic.exe workspace-rule exe Obsidian.exe 0 1, , Hide
+; Run, komorebic.exe workspace-rule exe Discord.exe 0 2, , Hide
+; Run, komorebic.exe workspace-rule exe Spotify.exe 0 2, , Hide
 
 ; Always float IntelliJ popups, matching on class
 Run, komorebic.exe float-rule class SunAwtDialog, , Hide
 ; Always float Control Panel, matching on title
 Run, komorebic.exe float-rule title "Control Panel", , Hide
-; Always float Task Manager, matching on class
-; Run, komorebic.exe float-rule class 任务管理器, , Hide
 ; Always float Wally, matching on executable name
 Run, komorebic.exe float-rule exe Wally.exe, , Hide
 Run, komorebic.exe float-rule exe wincompose.exe, , Hide
@@ -65,31 +58,16 @@ Run, komorebic.exe float-rule exe wincompose.exe, , Hide
 Run, komorebic.exe float-rule title Calculator, , Hide
 Run, komorebic.exe float-rule exe 1Password.exe, , Hide
 
-Run, komorebic.exe float-rule exe OneCommander.exe, , Hide
-Run, komorebic.exe float-rule title uTools, , Hide
-Run, komorebic.exe float-rule title MobaXterm, , Hide
-Run, komorebic.exe float-rule title "Clash for Windows", , Hide
-Run, komorebic.exe float-rule exe steamwebhelper.exe, , Hide
-Run, komorebic.exe float-rule title "- LBX Stripper -", , Hide
-Run, komorebic.exe float-rule exe ColorPickerUI.exe, , Hide
-
 ; Always manage forcibly these applications that don't automatically get picked up by komorebi
 ; Run, komorebic.exe manage-rule exe TIM.exe, , Hide
-; Run, komorebic.exe manage-rule title 微信测试版 , Hide
 
 ; Identify applications that close to the tray
-Run, komorebic.exe identify-tray-application exe Discord.exe, , Hide
-Run, komorebic.exe identify-tray-application exe OneCommander.exe, , Hide
-Run, komorebic.exe identify-tray-application exe WeChat.exe, , Hide
-Run, komorebic.exe identify-tray-application exe TIM.exe, , Hide
-Run, komorebic.exe identify-tray-application title "Clash for Windows", , Hide
-Run, komorebic.exe identify-tray-application title uTools, , Hide
-Run, komorebic.exe identify-tray-application exe Telegram.exe, , Hide
-Run, komorebic.exe identify-tray-application exe Spotify.exe, , Hide
-Run, komorebic.exe identify-tray-application exe qbittorrent.exe, , Hide
+; Run, komorebic.exe identify-tray-application exe Discord.exe, , Hide
+; Run, komorebic.exe identify-tray-application exe Spotify.exe, , Hide
+; Run, komorebic.exe identify-tray-application exe qbittorrent.exe, , Hide
 
 ; Identify applications that have overflowing borders
-Run, komorebic.exe identify-border-overflow exe Discord.exe, , Hide
+; Run, komorebic.exe identify-border-overflow exe Discord.exe, , Hide
 
 ; Start komorebi
 <#^s::
@@ -125,21 +103,14 @@ Run, komorebic.exe cycle-focus previous, , Hide
 return
 
 
+; TODO: add moves as cycles
 ; Move the focused window in a given direction, Win + Shift + Vim direction keys
-<#+h::
-Run, komorebic.exe move left, , Hide
-return
-
 <#+j::
-Run, komorebic.exe move down, , Hide
+Run, komorebic.exe cycle-move next, , Hide
 return
 
 <#+k::
-Run, komorebic.exe move up, , Hide
-return
-
-<#+l::
-Run, komorebic.exe move right, , Hide
+Run, komorebic.exe cycle-move previous, , Hide
 return
 
 ; Stack the focused window in a given direction, Win + Shift + direction keys
@@ -218,7 +189,7 @@ Run, komorebic.exe toggle-float, , Hide
 return
 
 ; Reload ~/komorebi.ahk, Win + O
-<#o::
+<#;::
 Run, komorebic.exe reload-configuration, , Hide
 return
 
@@ -299,17 +270,22 @@ Run, komorebic.exe resize-axis vertical increase, , Hide
 return
 
 ; Monitor
-<#;::
+<#o::
 Run, komorebic.exe cycle-monitor next, , Hide
 return
 
-<#m::
-Run, komorebic.exe move-to-monitor 1, , Hide
-return
+; <#+o::
+; Run, komorebic.exe send-to-monitor next, , Hide
+; return
 
-<#,::
-Run, komorebic.exe move-to-monitor 0, , Hide
-return
+
+;<#m::
+;Run, komorebic.exe move-to-monitor 1, , Hide
+;return
+
+;<#,::
+;Run, komorebic.exe move-to-monitor 0, , Hide
+;return
 
 ; window utils
 
