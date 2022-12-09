@@ -1,2 +1,2 @@
-source ~/.bash_alias
+source ~/.alias
 eval "$(zoxide init bash)"

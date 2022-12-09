@@ -2,6 +2,9 @@
 
 Run, komorebic.exe start, , Hide
 
+Run, komorebic.exe active-window-border enable, , Hide
+Run, komorebic.exe active-window-border-colour 150 100 100 --window-kind single
+
 ; window hiding behavior
 Run, komorebic.exe window-hiding-behaviour hide, , Hide
 
@@ -19,8 +22,7 @@ Run, komorebic.exe invisible-borders 12 12 24 24, , Hide
 
 ; Enable focus follows mouse
 Run, komorebic.exe focus-follows-mouse disable, , Hide
-
-Run, komorebic.exe mouse-follows-focus enable, , Hide
+Run, komorebic.exe mouse-follows-focus disable, , Hide
 
 ; Ensure there are 3 workspaces created on monitor 0
 Run, komorebic.exe ensure-workspaces 0 9, , Hide
