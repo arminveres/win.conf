@@ -12,10 +12,10 @@ Run, komorebic.exe window-hiding-behaviour hide, , Hide
 Run, komorebic.exe watch-configuration enable, , Hide
 
 ; Create space for Yasb
-Run, komorebic.exe work-area-offset 0 28 0 28, , Hide
+;Run, komorebic.exe work-area-offset 0 28 0 28, , Hide
 
 ; Open Yasb
-Run, python C:\Users\av\gitprojs\yasb\src\main.py, , Hide
+;Run, python C:\Users\av\gitprojs\yasb\src\main.py, , Hide
 
 ; Configure the invisible border dimensions
 Run, komorebic.exe invisible-borders 12 12 24 24, , Hide
@@ -82,9 +82,9 @@ Run, komorebic.exe stop, , Hide
 return
 
 ; Start yasb
-<#^y::
-Run, python C:\Users\av\gitprojs\yasb\src\main.py, , Hide
-return
+/* <#^y:: */
+/* Run, python C:\Users\av\gitprojs\yasb\src\main.py, , Hide */
+/* return */
 
 ; Change the focused window, Win + Vim direction keys
 ;<#h::
