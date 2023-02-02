@@ -1,10 +1,14 @@
 # win.conf
 Dotfiles and configurations for Windwos
 
-## yasb
+## bash
 
-Move into $USER/.yasb
+Move `.alias`, `.bashrc`, `.bash_profile` into `~`
 
-## Komorebi
+## WezTerm
 
-move into $USER/.config/komorebi
+Move `.wezterm.lua` into `~`.
+
+## glaze-wm
+
+Move `.glaze-wm` into `~`
