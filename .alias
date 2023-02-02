@@ -1,2 +1,10 @@
+alias vi=nvim
 alias ls="ls --color=always"
-alias la="ls --color=always -a"
+alias la="ls --color=always -A"
+alias ll="ls --color=always -Al"
+alias ga="git add"
+alias gls="git status"
+alias gb="git branch"
+alias gco="git checkout"
+alias glo="git log"
+alias sudobash="powershell -Command \"Start-Process 'C:\Program Files\Git\bin\bash.exe' -Verb runAs\""

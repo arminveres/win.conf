@@ -9,7 +9,7 @@ bar:
   background: "#20242cc4"
   foreground: "#ffffff"
   font_family: "Tamzen"
-  font_size: "13px"
+  font_size: "14px"
   padding: "4px 6px"
   components_left:
     - type: "workspaces"
@@ -31,7 +31,6 @@ bar:
 
 workspaces:
   - name: "1"
-    bind_to_monitor: 1, 2, 3
   - name: "2"
   - name: "3"
   - name: "4"
@@ -40,6 +39,7 @@ workspaces:
   - name: "7"
   - name: "8"
   - name: "9"
+  - name: "10"
 
 window_rules:
   # Task Manager requires admin privileges to manage and should be ignored unless running
@@ -148,7 +148,7 @@ keybindings:
 
   # Focus the workspace that last had focus.
   - command: "focus workspace recent"
-    binding: "Alt+Y"
+    binding: "Alt+Escape"
 
   # Focus the next/previous workspace defined in `workspaces` config.
   - command: "focus workspace next"
@@ -175,6 +175,8 @@ keybindings:
     binding: "Alt+8"
   - command: "focus workspace 9"
     binding: "Alt+9"
+  - command: "focus workspace 10"
+    binding: "Alt+0"
 
   # Move focused workspace to a monitor in a given direction.
   - command: "move workspace left"
