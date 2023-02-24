@@ -14,7 +14,7 @@
 	sslBackend = openssl
 	sslCAInfo = C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
 [core]
-	autocrlf = false
+	autocrlf = true # windows specific
 	fscache = true
 	symlinks = true
 	fsmonitor = true
@@ -25,3 +25,12 @@
 	helper = manager-core
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[merge]
+	tool = "nvim"
+[mergetool]
+	keepBackup = false
+	prompt = false
+[mergetool "nvim"]
+	cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+[alias]
+	tree = log --oneline --graph --decorate --branches
